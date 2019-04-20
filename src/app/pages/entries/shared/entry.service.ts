@@ -55,6 +55,7 @@ export class EntryService {
   update(entry: Entry): Observable<Entry> {
     const url = `${this.apiPath}/${entry.id}`;
 
+    //Necessário devido ao angular-in-memory-api
     return this.categoryService.getById(entry.categoryId).pipe(
       flatMap(category => {
         entry.category = category;
