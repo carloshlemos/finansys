@@ -39,7 +39,7 @@ export class EntryService {
   create(entry: Entry): Observable<Entry> {
 
     //Necessário devido ao angular-in-memory-api
-    this.categoryService.getById(entry.categoryId).pipe(
+    return this.categoryService.getById(entry.categoryId).pipe(
       flatMap(category => {
         entry.category = category;
 
@@ -60,7 +60,7 @@ export class EntryService {
       flatMap(category => {
         entry.category = category;
 
-        return this.http.put(this.apiPath, Entry).pipe(
+        return this.http.put(this.apiPath, entry).pipe(
           catchError(this.handleError),
           map(() => entry)
         );
