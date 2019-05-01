@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 
 import { BaseResourceListComponent } from '../../../shared/base-resource-list/base-resource-list.component';
